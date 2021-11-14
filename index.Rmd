@@ -1,6 +1,6 @@
 --- 
 title: "SpeedDating Analysis"
-author: "Sandy Chen, Yixuan Liu"
+author: "Sandy chen, Yixuan Liu"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
