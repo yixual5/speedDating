@@ -1,6 +1,6 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAMES HERE"
+title: "SpeedDating Analysis"
+author: "Sandy Chen, Yixuan Liu"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
