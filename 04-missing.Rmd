@@ -1,1 +1,104 @@
 # Missing values
+```{r}
+## Read in the dataset
+dating_df=read.csv('Speed Dating Data.csv')
+```
+
+## Missing Value Pattern Analysis: Whole Dataset
+
+In this section, we will visualize and analyze the missing values in the datasets. The dataset we use contains two part: one part are variables documented by the event, and the rest of the data came from survey results filled out voluntarily by the participants of the speed dating events. In order to analyze the missing value trend, we are first going to generate a histogram of the percentage of missing value of each variable, which hopefully will give us some insight for the investigation of the dataset. 
+
+Below, we calculate the missing value percentage by dividing the number of the null values by the total number of entries in each column. 
+```{r}
+missing<- sapply(dating_df, function(x) sum(is.na(x))/length(x))
+missing1<-as.data.frame(missing)
+missing1$var=rownames(missing1)
+rownames(missing1)<-NULL
+```
+
+We would plot the missing datta percentage with a histogram below:
+
+```{r,fig.height=10,fig.width=10}
+## Histogram:
+ggplot(missing1,aes(fct_reorder(as.character(var),missing),y=missing))+
+  geom_col()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  ylab('Percent of Missing Value')+
+  xlab('Variable')
+
+```
+
+From the histogram above, we can observe that variables like id, iid, wave number, and matching results which are data documented by the event have no missing values. Variables like race, career, and zipcode, and gender also contain no missing values. However, variables involving the evaluation of partners during the event, for example, fun and sinc (sincerity) have missing value exceeding 50%. It will be interesting to look into the reason behind the high missing percentage of those variables. For instance, different waves of the participants were asked to fill out different evaluative questions, and hence variables related to evaluation contain a large portion of missing values. 
+
+
+## Missing Value Pattern Analysis: Subset of Variables 
+
+Based on the questions we want to investigate, we select 15 variables among the 195 variables from the dataset. Below, we plot the missing value pattern for these 15 variables: 
+
+```{r}
+df_select<-dating_df[,c('gender','match','race_o','field','race','income','goal','age','attr','dec_o','like_o','imprace','mn_sat','attr1_1','met')]
+
+```
+
+
+```{r}
+### Draw missing plots:
+missing_plot <- function(x, percent) {
+  missing_patterns <- data.frame(is.na(x)) %>%
+  group_by_all() %>%
+  count(name = "count", sort = TRUE) %>%
+  ungroup()
+  lv <- data.frame(is.na(x)) %>% gather() %>% group_by(key) %>%  summarise(value = sum(value==TRUE)) %>% arrange(.,desc(value))
+  temp <-t(apply(missing_patterns[,names(missing_patterns) != "count"] , 1, FUN = function(x, output) {
+      t = FALSE
+   for (i in 1 : length(x)) {
+     t = t || x[i]
+     if (x[i]) {
+       x[i] = 1
+     } else {
+       x[i] = 0
+     }
+   }
+    if (!t) {
+      for (i in 1 : length(x)) {
+        x[i] = 2
+      }
+    }
+    return (x)
+  })) %>% melt()
+  
+  p1 <- ggplot(temp, aes(x = fct_relevel(Var2, list(as.character(lv$key))), y = fct_rev(as.factor(Var1)) , fill = as.character(value))) + geom_tile(color = 'white') +
+       xlab("Variables") + ylab("Missing Pattern") + theme(legend.position = "None") + scale_fill_manual(values = c("grey", "#CF9FFF", "#A9A9A9")) + scale_x_discrete(label = abbreviate)
+  if (percent) {
+    p2 <- ggplot(lv, aes(x = fct_relevel(key, list(as.character(key))), y = 100 * value / sum(missing_patterns$count))) + geom_col() + xlab("") + ylab("% rows:\n missing:") + ylim(0,100) + scale_x_discrete(label = abbreviate)
+  } else {
+    p2 <- ggplot(lv, aes(x = fct_relevel(key, list(as.character(key))), y = value)) + geom_col() + xlab("") + ylab("num rows:\n missing:") + scale_x_discrete(label = abbreviate)
+  }
+  if (percent) {
+    p3 <- rownames_to_column(missing_patterns, var = "ids") %>% ggplot(aes(fct_relevel(ids, rev(c(ids))), 100 * count / sum(count))) + geom_col() + xlab("") + ylab("% row") + coord_flip() + ylim(0,100)
+  } else {
+    temp2 <- rownames_to_column(missing_patterns, var = "ids")
+    p3 <- temp2 %>% ggplot(aes(fct_relevel(ids, rev(c(ids))), count)) + geom_col() + xlab("") + ylab("row count") + coord_flip()
+  }
+  
+  p4 <- (p2 / p1) + plot_layout(height = c(1,4))
+  p5 <- (plot_spacer() / p3) + plot_layout(height = c(1,4), width = 0.1)
+  p2 + plot_spacer() +
+    p1 + p3 +
+    plot_layout(width = c(4,1), height = c(1,4))
+}
+```
+
+```{r}
+missing_plot(df_select,FALSE)
+missing_plot(df_select,TRUE)
+```
+
+From the plots above, we can observe that Variables such as field, gender, income, match, and decision after the meeting have no missing values. We can observe that in the dataset, variables age, a1_1(importance of attractiveness), goal, impr (importance of same race) are often missing together. We need to further investigate the high missing value percentage of met (if youm met your partner before), and the result might give us some interesting fact about the dataset. 
+
+
+
+Answer following questions:
+Are all there row patterns to the missing values?
+Are certain ranges more likely to be missing?
+
