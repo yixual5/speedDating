@@ -7,3 +7,7 @@ site: bookdown::bookdown_site
 
 # Introduction
 
+Do people with similar traits more likely to fall in love with each other? Do men and women have similar preferences in a romantic relationship? What are some most important attributes that contribute to a successful matching? Those are the questions at the heart of our investigation of the speed dating dataset. 
+
+Speed dating nowadays becomes a common medium for establish romantic relationships. Speed dating allows participant to meet a group of potential romantic partners in a short amount of time. Disregard of the actual effectiveness of building a meaningful relationship within several minutes of dating, studying speed dating can answer some essential question about gender differences and racial differences in the dating market, which might shed some light on more complicated social issues. 
+
