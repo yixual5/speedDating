@@ -1,2 +1,15 @@
 # Data sources
+The dataset was created and collected by two professors in the Columbia Business School, Raymond Fisman and Sheena S. Iyengar. The dataset was used for their paper [GENDER DIFFERENCES IN MATE SELECTION: EVIDENCE FROM A SPEED DATING EXPERIMENT](https://www8.gsb.columbia.edu/researcharchive/getpub/867/p). In this section, I will go over through the basic setting of this experiment and how they collected these data.
+
+The data was collected during 2002 - 2004 speed dating experiments which is designed by those two professor. The data consists of 21 different experiment each of them has different number of participants, which is corresponded to the Wave feature in the data. In every experiment, every one would have a four minute conversation in an enclosed room setting with all other participants had different sex. After the first dating, they decided whether or not to meet someone again. These subjects are students from Columbia University. These participants were selected by answering some emails and fliers. In addition, they need complete a pre event survey which consists of age, field of study, race, tuition, zip code, income, goal, interests etc. In addition to these field, they were asked to rate six traits with respect to their potential dating partner (j=1) - Attractive, Sincere, Intelligent, Fun, Ambitious and Shared Interests. In addition, they were asked to rate what their opposite sex would look for in a date (j=2). Then, they were aksed to rate themselves (j=3) and how other perceived them (j=5) based on these six traits. Also, they were asked to rate how their same sex fellow think (j=4).
+
+After each round (4 minute dating), they had a scorecard to fill to show their likeness and willingness of a future dating (Yes or No) and rate their dating subject based on the six traits. In the half way of each experiment, these participants are asked to fill another questionarie to rate the importance of six traits in a potential date and their opinion of themselves.
+
+After one day of meeting, these pariticpants were aksed to fill another survey which consists same questions as the pre survey and to rate six traits.
+
+Finally, After three or four week, they were asked again to rate six traits.
+
+So as a result, the dataset consist of fews survey which has format attr j_i. The corresponding j values are stated above. In addition, i = 1 means pre-survey time and i = 2 means day 1 survey time and i = 3 means three or four week survey time. During the event, their rating has no j_i follow attr: For example, sinc means how this person rate their partner in sincere after 4 mins meeting. In addition, attr_o means the rate that their partner give after meeting.
+
+One problem with these dataset is that for each person, there are multiple rows and most of their column are same. The difference correspond to different partner's rating and their own rating to different partners. The more specific description of each variable can be found [here]().
 
