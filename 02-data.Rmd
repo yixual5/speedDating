@@ -11,5 +11,5 @@ Finally, After three or four week, they were asked again to rate six traits.
 
 So as a result, the dataset consist of fews survey which has format attr j_i. The corresponding j values are stated above. In addition, i = 1 means pre-survey time and i = 2 means day 1 survey time and i = 3 means three or four week survey time. During the event, their rating has no j_i follow attr: For example, sinc means how this person rate their partner in sincere after 4 mins meeting. In addition, attr_o means the rate that their partner give after meeting.
 
-One problem with these dataset is that for each person, there are multiple rows and most of their column are same. The difference correspond to different partner's rating and their own rating to different partners. The more specific description of each variable can be found [here]().
+One problem with these dataset is that for each person, there are multiple rows and most of their column are same. The difference correspond to different partner's rating and their own rating to different partners. The more specific description of each variable can be found [here](https://github.com/yixual5/speedDating/blob/main/Speed%20Dating%20Data%20Key.doc).
 
