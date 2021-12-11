@@ -1,1 +1,19 @@
 # Data transformation
+In order to generate effective visualization of the dataset, we performed several transformation to the dataset. 
+Since the survey done by wave 6 to 9 use a different scale that other groups, we will first filter out the dating data of wave 6 to 9.
+```{r}
+
+dating_df<-dating_df[!(dating_df$wave >=6 & dating_df$wave<=9),]
+```
+The speed dating dataset contains 195 variables. Many of the variables serve the same purpose, for instance, both 'from' and 'zipcode' record where the participant comes from. In our analysis, we remove redundant variables and variables that do not provide essential information for the questions that we want to investigate. As a result, we selected the following variables which we believe are gender, matching or not, race of partner (race_o), race of participant (race), field of study, income, goal, age, age of partner (age_o), importance of race (imprace), median_sat (mn_sat), partner's decision (dec_o), career, and attributes ratings. We include attributes ratings from both pre and post dating surveys; specifically, they are participants'  ratings of the importance of attractiveness, sincerety, intelligence, fun, ambition, and shared interests in their partners (attr1_1,sinc1_1,intel1_1,fun1_1,amb1_1,shar1_1), and partner's rating on those attributes (pf_o_att,pf_o_sin,pf_o_int,pf_o_fun,pf_o_amb,pf_o_sha). We also included participant's rating of their partner after each round.  The remaining variables are:
+
+```{r}
+df_select <- dating_df[,c('id','iid','pid','wave','gender','match','race_o','field','race','income','goal','age','dec_o','imprace','mn_sat','attr1_1','sinc1_1','intel1_1','fun1_1','amb1_1','shar1_1','pf_o_att','pf_o_sin','pf_o_int','pf_o_fun','pf_o_amb','pf_o_sha','dec','attr','intel','fun','amb','shar')]
+names(df_select)
+```
+
+The varaible names in the original dataset is not self explanatory. We decided to use more detailed variable names that will make later visualizations easier to understand.
+```{r}
+colnames(df_select)<-c('id','id_within_group','partner_id','wave','gender','match','partner_race','field_study','race','income','goal','age','partner_decision','race_importance','median_sat','pre_rate_attractiveness','pre_rate_sincerety','pre_rate_intelligence','pre_rate_fun','pre_rate_ambition','pre_rate_share','partner_rate_attractive','partner_rate_sincerety','partner_rate_intelligence','partner_rate_fun','partner_rate_ambition','partner_rate_share','decision','attrativeness','intelligence','fun','ambition','shared_interest')
+names(df_select)
+```
