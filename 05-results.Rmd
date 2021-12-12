@@ -22,7 +22,6 @@ library(tidytext)
 library(fmsb)
 ```
 
-First, we will present an overview of the speed dating dataset by displaying the distribution of race, age, field of studies, and income of the participants across different genders. 
 
 ```{r}
 sd <- df_select %>% 
@@ -44,6 +43,7 @@ sd %>%
   ylab('Count')+
   ggtitle('Distribution of Race')
 ```
+
 From the histogram above, we can observe that majority of the participants are White, and we barely see any Native American and African American participants. Hence, this dataset is very unbalanced in terms of diverse demographic background of participants. In addition to the distribution of race among participants, we also investigate how important is race from participants' perspectives. We generate the following histogram and density plot to demonstrate the importance of race.
 
 ```{r}
@@ -72,6 +72,7 @@ sd %>%
   scale_x_continuous(limits=c(0, 10),breaks = seq(0, 10, 1))+
   ggtitle('Density Diagram for Importance of Race')
 ```
+
 From the histograms and density diagrams above, we can observe that majority of male and female participants gave a low rating to the importance of race. Specifically, a larger proportion of men rated the importance of race as 1 than the female participants. Does lower rating in the importance of rating related to a higher rate of successful matching? Here, we calculated the success rate by dividing the number of positive responses (when matching=1) by the total number of matching results. Then, we generate a scatter plot to see if the importance of rate is related to the success rate of matching.
 ```{r}
 df_copy<- df_select
@@ -93,8 +94,8 @@ ggplot(temp,aes(x=race_importance,y=SR))+
   ylab('Success Rate')+
   ggtitle('Success Rate vs. Importance of Race')
 ```
-We didn't see a salient relationship between success rate and the importance of race in the scatterplot above. However, we see that participants with high success rate (above 0.7) are those who rate importance of race with a score of 3 or below. Participants who rated importance of race with 10 face a much smaller group of ideal dating partners and consequently have a much lower rate of success.
 
+We didn't see a salient relationship between success rate and the importance of race in the scatterplot above. However, we see that participants with high success rate (above 0.7) are those who rate importance of race with a score of 3 or below. Participants who rated importance of race with 10 face a much smaller group of ideal dating partners and consequently have a much lower rate of success.
 
 ```{r, fig.height = 5, fig.width=5}
 df_traits <- df_select %>% na.omit() %>% select(id_within_group, gender, pre_rate_attractiveness, pre_rate_sincerity, pre_rate_intelligence, pre_rate_fun, pre_rate_ambition, pre_rate_share) %>% unique(by = id_within_group)
@@ -108,6 +109,10 @@ df_long <- melt(df_traits, id = c('id_within_group', 'gender')) %>% unite('merge
 #grid.arrange(grobs = temp2, nrow = 2, ncol = 1)
 
 df_long %>% ggplot(aes(x = reorder(merge, value, median), y = value)) + geom_boxplot()  + scale_y_continuous(limits = c(0, 100)) + coord_flip()+ggtitle('Boxplots for Traits')
+```
+
+
+```{r, fig.height = 12, fig.width=12}
 
 temp <- list()
 t1 <- ggplot(df_traits, aes(x = pre_rate_attractiveness)) + geom_histogram(aes(y = ..density..),binwidth = 5) + xlim(0,100) + geom_density(color = 'red') + facet_wrap(~gender)
@@ -124,6 +129,7 @@ temp[[5]] = t5
 temp[[6]] = t6
 grid.arrange(grobs = temp, nrow = 6, ncol = 1)
 ```
+
 From the boxplots above, we can observe that men's rating of attractiveness has the highest median, while men's rating on ambition has lowest mean among all. Among female participants, rating of sincerity has the highest median while rating for shared interests has the lowest median. We can conclude that, for men, the most desirable trait is physical attractiveness, while for female participants, the most important trait is sincerity. Despite gender differences in rating traits, we can also observe heterogeneity within each gender group. Other than male participants' rating of shared interests, all other ratings disregard of gender have outliers, and the distribution of all ratings are skewed. Among all the ratings, ratings for attractiveness possess the greatest variability for both men and women. 
 
 We also generated a radar chart to compare the female and male ratings of the six attributes. We can observe similar features as in the boxplots. Male participants focus more on physical attractiveness than their female counterparts, while female participants value ambition more than the male participants. Male and female participants have similar perspectives on intelligence, sincerity and shared interests.
@@ -172,10 +178,6 @@ legend(x = 1, y = 1.2, legend = c("Male perspective", "Female perspective"),
        text.col = "black", cex = 0.8, pt.cex = 2)
 ```
 
-
-
-
-
 The mosaic plots below show the association between different traits and the decision after the speed dating. Attrativeness, fun, and shared interests are positive associated with decision. In other words, higher the scores for those three traits, the more likely the dating partner would decide yes after the date. Interestingly, high intelligence and ambition score seemed to have a negative association with decision. When intelligence score increases from 9 to 10, the proportion of positive responses drops. 
 
 ```{r, fig.height= 5, fig.width= 5}
@@ -184,7 +186,10 @@ df_temp <- df_select %>% na.omit() %>% select(samerace, match, race_importance) 
 df_traits2 <- df_select %>% na.omit() %>% select(id_within_group, gender, decision, attractiveness, sincerity, intelligence, fun, ambition, shared_interest) %>% unique(by = id_within_group) %>% mutate(decision1 = case_when(decision == 1 ~ 'True', decision == 0 ~ 'False')) %>% select(-decision) %>% rename(decision = decision1) %>% filter(attractiveness == floor(attractiveness),sincerity == floor(sincerity),intelligence == floor(intelligence),fun == floor(fun),ambition == floor(ambition),shared_interest == floor(shared_interest))
 
 mosaic(IsMatch ~ IsSameRace, direction = c("v", "h"), df_temp)
-par(mfrow=c(2,3))
+```
+
+
+```{r, fig.height= 12, fig.width= 12}
 p1<-grid.grabExpr(mosaic(decision ~ attractiveness, direction = c("v", "h"), df_traits2))
 p2<-grid.grabExpr(mosaic(decision ~ sincerity, direction = c("v", "h"), df_traits2))
 p3<-grid.grabExpr(mosaic(decision ~ intelligence, direction = c("v", "h"), df_traits2))
