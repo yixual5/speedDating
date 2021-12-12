@@ -24,7 +24,7 @@
 <meta name="author" content="Sandy chen, Yixuan Liu" />
 
 
-<meta name="date" content="2021-11-19" />
+<meta name="date" content="2021-12-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="data-transformation.html"/>
 <link rel="next" href="results.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
@@ -76,8 +76,7 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
 <li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a></li>
-<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a>
-<ul>
+<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a><ul>
 <li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#missing-value-pattern-analysis-whole-dataset"><i class="fa fa-check"></i><b>4.1</b> Missing Value Pattern Analysis: Whole Dataset</a></li>
 <li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#missing-value-pattern-analysis-subset-of-variables"><i class="fa fa-check"></i><b>4.2</b> Missing Value Pattern Analysis: Subset of Variables</a></li>
 </ul></li>
@@ -103,20 +102,19 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="missing-values" class="section level1" number="4">
+<div id="missing-values" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Missing values</h1>
-<div id="missing-value-pattern-analysis-whole-dataset" class="section level2" number="4.1">
+<div id="missing-value-pattern-analysis-whole-dataset" class="section level2">
 <h2><span class="header-section-number">4.1</span> Missing Value Pattern Analysis: Whole Dataset</h2>
 <p>In this section, we will visualize and analyze the missing values in the dataset. The dataset we use contains two part: one part are variables documented by the event, and the rest of the data came from survey results filled out voluntarily by the participants of the speed dating events. In order to analyze the missing value trend, we are first going to generate a histogram of the percentage of missing value of all variables, which hopefully will give us some insight for the investigation of the dataset. Due to a large amount of variables, we cannot plot all of them and we decide to see some of important variables in the pattern plot. In later section, we try to remove some unnecessary varaibles and some variables missing a lot of values.</p>
 <p>Below, we calculate the missing value percentage by dividing the number of the null values by the total number of entries in each column.</p>
 <p>We would plot the missing datta percentage with a histogram below:</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-13-1.png" width="960" /></p>
 <p>From the histogram above, we can observe that variables like id, iid, wave number, and matching results which are data documented by the event have no missing values. Variables like race, career, and zipcode, and gender also contain no missing values. However, variables involving the evaluation of partners during the event, for example, fun and sinc (sincerity) have missing value exceeding 50%. It will be interesting to look into the reason behind the high missing percentage of those variables. For instance, different waves of the participants were asked to fill out different evaluative questions, and hence variables related to evaluation contain a large portion of missing values. In addition, it is kind of hard to answer these questionnaires with a lot of subjective questions.</p>
 </div>
-<div id="missing-value-pattern-analysis-subset-of-variables" class="section level2" number="4.2">
+<div id="missing-value-pattern-analysis-subset-of-variables" class="section level2">
 <h2><span class="header-section-number">4.2</span> Missing Value Pattern Analysis: Subset of Variables</h2>
 <p>Based on the questions we want to investigate, we select 15 variables among the 195 variables from the dataset. Below, we plot the missing value pattern for these 15 variables:</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-10-2.png" width="672" /></p>
 <p>From the plots above, we can observe that Variables such as field, gender, income, match, and decision after the meeting have no missing values. We can observe that in the dataset, variables age, a1_1(importance of attractiveness), goal, impr (importance of same race) are often missing together. We need to further investigate the high missing value percentage of met (if youm met your partner before), and the result might give us some interesting fact about the dataset.</p>
 
 </div>

@@ -24,7 +24,7 @@
 <meta name="author" content="Sandy chen, Yixuan Liu" />
 
 
-<meta name="date" content="2021-11-19" />
+<meta name="date" content="2021-12-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="missing-values.html"/>
 <link rel="next" href="interactive-component.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
@@ -76,8 +76,7 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
 <li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a></li>
-<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a>
-<ul>
+<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a><ul>
 <li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#missing-value-pattern-analysis-whole-dataset"><i class="fa fa-check"></i><b>4.1</b> Missing Value Pattern Analysis: Whole Dataset</a></li>
 <li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#missing-value-pattern-analysis-subset-of-variables"><i class="fa fa-check"></i><b>4.2</b> Missing Value Pattern Analysis: Subset of Variables</a></li>
 </ul></li>
@@ -103,8 +102,22 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="results" class="section level1" number="5">
+<div id="results" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Results</h1>
+<p>First, we will present an overview of the speed dating dataset by displaying the distribution of race, age, field of studies, and income of the participants across different genders.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+From the histogram above, we can observe that majority of the participants are White, and we barely see any Native American and African American participants. Hence, this dataset is very unbalanced in terms of diverse demographic background of participants. In addition to the distribution of race among participants, we also investigate how important is race from participants’ perspectives. We generate the following histogram and density plot to demonstrate the importance of race.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+From the histograms and density diagrams above, we can observe that majority of male and female participants gave a low rating to the importance of race. Specifically, a larger proportion of men rated the importance of race as 1 than the female participants. Does lower rating in the importance of rating related to a higher rate of successful matching? Here, we calculated the success rate by dividing the number of positive responses (when matching=1) by the total number of matching results. Then, we generate a scatter plot to see if the importance of rate is related to the success rate of matching.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+We didn’t see a salient relationship between success rate and the importance of race in the scatterplot above. However, we see that participants with high success rate (above 0.7) are those who rate importance of race with a score of 3 or below. Participants who rated importance of race with 10 face a much smaller group of ideal dating partners and consequently have a much lower rate of success.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-25-1.png" width="480" /><img src="finalproj_files/figure-html/unnamed-chunk-25-2.png" width="480" />
+From the boxplots above, we can observe that men’s rating of attractiveness has the highest median, while men’s rating on ambition has lowest mean among all. Among female participants, rating of sincerity has the highest median while rating for shared interests has the lowest median. We can conclude that, for men, the most desirable trait is physical attractiveness, while for female participants, the most important trait is sincerity. Despite gender differences in rating traits, we can also observe heterogeneity within each gender group. Other than male participants’ rating of shared interests, all other ratings disregard of gender have outliers, and the distribution of all ratings are skewed. Among all the ratings, ratings for attractiveness possess the greatest variability for both men and women.</p>
+<p>We also generated a radar chart to compare the female and male ratings of the six attributes. We can observe similar features as in the boxplots. Male participants focus more on physical attractiveness than their female counterparts, while female participants value ambition more than the male participants. Male and female participants have similar perspectives on intelligence, sincerity and shared interests.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>The mosaic plots below show the association between different traits and the decision after the speed dating. Attrativeness, fun, and shared interests are positive associated with decision. In other words, higher the scores for those three traits, the more likely the dating partner would decide yes after the date. Interestingly, high intelligence and ambition score seemed to have a negative association with decision. When intelligence score increases from 9 to 10, the proportion of positive responses drops.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-28-1.png" width="480" /><img src="finalproj_files/figure-html/unnamed-chunk-28-2.png" width="480" /></p>
 
 </div>
             </section>
