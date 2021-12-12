@@ -1,7 +1,7 @@
 # Missing values
 ```{r}
 ## Read in the dataset
-dating_df=read.csv('Speed Dating Data.csv')
+#dating_df=read.csv('Speed Dating Data.csv')
 ```
 
 ## Missing Value Pattern Analysis: Whole Dataset
@@ -36,7 +36,7 @@ From the histogram above, we can observe that variables like id, iid, wave numbe
 Based on the questions we want to investigate, we select 15 variables among the 195 variables from the dataset. Below, we plot the missing value pattern for these 15 variables: 
 
 ```{r}
-df_select<-dating_df[,c('gender','match','race_o','field','race','income','goal','age','attr','dec_o','like_o','imprace','mn_sat','attr1_1','met')]
+#df_select<-dating_df[,c('gender','match','race_o','field','race','income','goal','age','attr','dec_o','like_o','imprace','mn_sat','attr1_1','met')]
 
 ```
 
@@ -90,8 +90,8 @@ missing_plot <- function(x, percent) {
 ```
 
 ```{r}
-missing_plot(df_select,FALSE)
-missing_plot(df_select,TRUE)
+#missing_plot(df_select,FALSE)
+#missing_plot(df_select,TRUE)
 ```
 
 From the plots above, we can observe that Variables such as field, gender, income, match, and decision after the meeting have no missing values. We can observe that in the dataset, variables age, a1_1(importance of attractiveness), goal, impr (importance of same race) are often missing together. We need to further investigate the high missing value percentage of met (if youm met your partner before), and the result might give us some interesting fact about the dataset. 
