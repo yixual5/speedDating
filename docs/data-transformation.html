@@ -33,7 +33,6 @@
   
 <link rel="prev" href="data-sources.html"/>
 <link rel="next" href="missing-values.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
@@ -76,13 +76,11 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
 <li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a></li>
-<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a>
-<ul>
+<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a><ul>
 <li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#missing-value-pattern-analysis-whole-dataset"><i class="fa fa-check"></i><b>4.1</b> Missing Value Pattern Analysis: Whole Dataset</a></li>
 <li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#missing-value-pattern-analysis-subset-of-variables"><i class="fa fa-check"></i><b>4.2</b> Missing Value Pattern Analysis: Subset of Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a>
-<ul>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
 <li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#between-race-and-matching"><i class="fa fa-check"></i><b>5.1</b> Between Race and Matching</a></li>
 <li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#traits-and-matching"><i class="fa fa-check"></i><b>5.2</b> Traits and Matching</a></li>
 </ul></li>
@@ -107,28 +105,21 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-transformation" class="section level1" number="3">
+<div id="data-transformation" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Data transformation</h1>
 <p>In order to generate effective visualization of the dataset, we performed several transformation to the dataset.
 Since the survey done by wave 6 to 9 use a different scale that other groups, we will first filter out the dating data of wave 6 to 9.</p>
 <p>The speed dating dataset contains 195 variables. Many of the variables serve the same purpose, for instance, both ‘from’ and ‘zipcode’ record where the participant comes from. In our analysis, we remove redundant variables and variables that do not provide essential information for the questions that we want to investigate. As a result, we selected the following variables which we believe are gender, matching or not, race of partner (race_o), race of participant (race), field of study, income, goal, age, age of partner (age_o), importance of race (imprace), median_sat (mn_sat), partner’s decision (dec_o), career, and attributes ratings. We include attributes ratings from both pre and post dating surveys; specifically, they are participants’ ratings of the importance of attractiveness, sincerety, intelligence, fun, ambition, and shared interests in their partners (attr1_1,sinc1_1,intel1_1,fun1_1,amb1_1,shar1_1), and partner’s rating on those attributes (pf_o_att,pf_o_sin,pf_o_int,pf_o_fun,pf_o_amb,pf_o_sha). We also included participant’s rating of their partner after each round. The remaining variables are:</p>
-<pre><code>##  [1] &quot;id&quot;       &quot;iid&quot;      &quot;pid&quot;      &quot;wave&quot;     &quot;samerace&quot; &quot;gender&quot;   &quot;match&quot;    &quot;race_o&quot;   &quot;field&quot;   
-## [10] &quot;race&quot;     &quot;income&quot;   &quot;goal&quot;     &quot;age&quot;      &quot;dec_o&quot;    &quot;imprace&quot;  &quot;mn_sat&quot;   &quot;attr1_1&quot;  &quot;sinc1_1&quot; 
-## [19] &quot;intel1_1&quot; &quot;fun1_1&quot;   &quot;amb1_1&quot;   &quot;shar1_1&quot;  &quot;pf_o_att&quot; &quot;pf_o_sin&quot; &quot;pf_o_int&quot; &quot;pf_o_fun&quot; &quot;pf_o_amb&quot;
-## [28] &quot;pf_o_sha&quot; &quot;dec&quot;      &quot;attr&quot;     &quot;sinc&quot;     &quot;intel&quot;    &quot;fun&quot;      &quot;amb&quot;      &quot;shar&quot;</code></pre>
+<pre><code>##  [1] &quot;id&quot;       &quot;iid&quot;      &quot;pid&quot;      &quot;wave&quot;     &quot;samerace&quot; &quot;gender&quot;   &quot;match&quot;    &quot;race_o&quot;   &quot;field&quot;    &quot;race&quot;     &quot;income&quot;   &quot;goal&quot;     &quot;age&quot;      &quot;dec_o&quot;    &quot;imprace&quot; 
+## [16] &quot;mn_sat&quot;   &quot;attr1_1&quot;  &quot;sinc1_1&quot;  &quot;intel1_1&quot; &quot;fun1_1&quot;   &quot;amb1_1&quot;   &quot;shar1_1&quot;  &quot;pf_o_att&quot; &quot;pf_o_sin&quot; &quot;pf_o_int&quot; &quot;pf_o_fun&quot; &quot;pf_o_amb&quot; &quot;pf_o_sha&quot; &quot;dec&quot;      &quot;attr&quot;    
+## [31] &quot;sinc&quot;     &quot;intel&quot;    &quot;fun&quot;      &quot;amb&quot;      &quot;shar&quot;</code></pre>
 <p>The varaible names in the original dataset is not self explanatory. We decided to use more detailed variable names that will make later visualizations easier to understand.</p>
-<pre><code>##  [1] &quot;id&quot;                        &quot;id_within_group&quot;           &quot;partner_id&quot;               
-##  [4] &quot;wave&quot;                      &quot;samerace&quot;                  &quot;gender&quot;                   
-##  [7] &quot;match&quot;                     &quot;partner_race&quot;              &quot;field_study&quot;              
-## [10] &quot;race&quot;                      &quot;income&quot;                    &quot;goal&quot;                     
-## [13] &quot;age&quot;                       &quot;partner_decision&quot;          &quot;race_importance&quot;          
-## [16] &quot;median_sat&quot;                &quot;pre_rate_attractiveness&quot;   &quot;pre_rate_sincerity&quot;       
-## [19] &quot;pre_rate_intelligence&quot;     &quot;pre_rate_fun&quot;              &quot;pre_rate_ambition&quot;        
-## [22] &quot;pre_rate_share&quot;            &quot;partner_rate_attractive&quot;   &quot;partner_rate_sincerity&quot;   
-## [25] &quot;partner_rate_intelligence&quot; &quot;partner_rate_fun&quot;          &quot;partner_rate_ambition&quot;    
-## [28] &quot;partner_rate_share&quot;        &quot;decision&quot;                  &quot;attractiveness&quot;           
-## [31] &quot;sincerity&quot;                 &quot;intelligence&quot;              &quot;fun&quot;                      
-## [34] &quot;ambition&quot;                  &quot;shared_interest&quot;</code></pre>
+<pre><code>##  [1] &quot;id&quot;                        &quot;id_within_group&quot;           &quot;partner_id&quot;                &quot;wave&quot;                      &quot;samerace&quot;                  &quot;gender&quot;                   
+##  [7] &quot;match&quot;                     &quot;partner_race&quot;              &quot;field_study&quot;               &quot;race&quot;                      &quot;income&quot;                    &quot;goal&quot;                     
+## [13] &quot;age&quot;                       &quot;partner_decision&quot;          &quot;race_importance&quot;           &quot;median_sat&quot;                &quot;pre_rate_attractiveness&quot;   &quot;pre_rate_sincerity&quot;       
+## [19] &quot;pre_rate_intelligence&quot;     &quot;pre_rate_fun&quot;              &quot;pre_rate_ambition&quot;         &quot;pre_rate_share&quot;            &quot;partner_rate_attractive&quot;   &quot;partner_rate_sincerity&quot;   
+## [25] &quot;partner_rate_intelligence&quot; &quot;partner_rate_fun&quot;          &quot;partner_rate_ambition&quot;     &quot;partner_rate_share&quot;        &quot;decision&quot;                  &quot;attractiveness&quot;           
+## [31] &quot;sincerity&quot;                 &quot;intelligence&quot;              &quot;fun&quot;                       &quot;ambition&quot;                  &quot;shared_interest&quot;</code></pre>
 
 </div>
             </section>
