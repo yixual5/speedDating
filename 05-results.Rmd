@@ -20,6 +20,7 @@ library(vcd)
 library(ggalluvial)
 library(tidytext)
 library(fmsb)
+library(patchwork)
 ```
 
 ## Between Race and Matching
