@@ -60,7 +60,7 @@ var xAxis = d3.axisBottom()
 var yAxis = d3.axisLeft()
   .scale(yScale);
 
-d3.csv('/speedDating/Speed Dating Data.csv',rowConverter)
+d3.csv('https://github.com/yixual5/speedDating/blob/main/script/data/Speed%20Dating%20Data.csv',rowConverter)
   .then(function (data) {
     var d = [];
     data.forEach(function(item){
