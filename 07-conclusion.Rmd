@@ -1,2 +1,7 @@
 # Conclusion
 
+It might not sound surprising, but physical attractiveness seems to be the most important trait to successful matching during speed dating. Based on our exploratory analysis of the dataset; nevertheless, people who consider racial differences less important are more likely to be matched successfully. 
+
+This report should help us to recognize the gender differences in dating preferences, and might provide some insight on the key features in the formation of long run romantic relationships. 
+
+A limitation of this study was that the demographic backgrounds of the participants are rather homogeneous, and most of them study law, finance, and social work. Hence, this dataset only provides a very provincial view of the dating behavior. In future studies, it is ideal to collect more data from people from other employment sectors and race other than White and Asian. In the missing value section, we discovered that variables involving evaluative behavior have more missing values. In future studies we should also look into the missing values in the trait ratings, and perhaps we we should re-format the original survey in a way that people are more willing to provide answers to evaluation questions. 
