@@ -5,5 +5,7 @@ missing-values
 missing-value-pattern-analysis-whole-dataset
 missing-value-pattern-analysis-subset-of-variables
 results
+between-race-and-matching
+traits-and-matching
 interactive-component
 conclusion

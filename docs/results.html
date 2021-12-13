@@ -33,7 +33,6 @@
   
 <link rel="prev" href="missing-values.html"/>
 <link rel="next" href="interactive-component.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
@@ -76,12 +76,14 @@
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data sources</a></li>
 <li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data transformation</a></li>
-<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a>
-<ul>
+<li class="chapter" data-level="4" data-path="missing-values.html"><a href="missing-values.html"><i class="fa fa-check"></i><b>4</b> Missing values</a><ul>
 <li class="chapter" data-level="4.1" data-path="missing-values.html"><a href="missing-values.html#missing-value-pattern-analysis-whole-dataset"><i class="fa fa-check"></i><b>4.1</b> Missing Value Pattern Analysis: Whole Dataset</a></li>
 <li class="chapter" data-level="4.2" data-path="missing-values.html"><a href="missing-values.html#missing-value-pattern-analysis-subset-of-variables"><i class="fa fa-check"></i><b>4.2</b> Missing Value Pattern Analysis: Subset of Variables</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#between-race-and-matching"><i class="fa fa-check"></i><b>5.1</b> Between Race and Matching</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#traits-and-matching"><i class="fa fa-check"></i><b>5.2</b> Traits and Matching</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
 <li class="divider"></li>
@@ -103,24 +105,32 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="results" class="section level1" number="5">
+<div id="results" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Results</h1>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div id="between-race-and-matching" class="section level2">
+<h2><span class="header-section-number">5.1</span> Between Race and Matching</h2>
+<p>We will start by looking at the distribution of race in the dataset and explore the relationship between race-related ratings and dating march.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>From the histogram above, we can observe that majority of the participants are White, and we barely see any Native American and African American participants. Hence, this dataset is very unbalanced in terms of diverse demographic background of participants. In addition to the distribution of race among participants, we also investigate how important is race from participants’ perspectives. We generate the following histogram and density plot to demonstrate the importance of race.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>From the histograms and density diagrams above, we can observe that majority of male and female participants gave a low rating to the importance of race. Specifically, a larger proportion of men rated the importance of race as 1 than the female participants. Does lower rating in the importance of rating related to a higher rate of successful matching? Here, we calculated the success rate by dividing the number of positive responses (when matching=1) by the total number of matching results. Then, we generate a scatter plot to see if the importance of rate is related to the success rate of matching.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>We didn’t see a salient relationship between success rate and the importance of race in the scatterplot above. However, we see that participants with high success rate (above 0.7) are those who rate importance of race with a score of 3 or below. Participants who rated importance of race with 10 face a much smaller group of ideal dating partners and consequently have a much lower rate of success.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-22-1.png" width="480" /></p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="1152" /></p>
+</div>
+<div id="traits-and-matching" class="section level2">
+<h2><span class="header-section-number">5.2</span> Traits and Matching</h2>
+<p>Now, we will look at the role of different traits (attractiveness, intelligence, sincerity, fun, ambition, and shared interests) in successful matching during speed dating.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-34-1.png" width="480" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-35-1.png" width="1152" /></p>
 <p>From the boxplots above, we can observe that men’s rating of attractiveness has the highest median, while men’s rating on ambition has lowest mean among all. Among female participants, rating of sincerity has the highest median while rating for shared interests has the lowest median. We can conclude that, for men, the most desirable trait is physical attractiveness, while for female participants, the most important trait is sincerity. Despite gender differences in rating traits, we can also observe heterogeneity within each gender group. Other than male participants’ rating of shared interests, all other ratings disregard of gender have outliers, and the distribution of all ratings are skewed. Among all the ratings, ratings for attractiveness possess the greatest variability for both men and women.</p>
 <p>We also generated a radar chart to compare the female and male ratings of the six attributes. We can observe similar features as in the boxplots. Male participants focus more on physical attractiveness than their female counterparts, while female participants value ambition more than the male participants. Male and female participants have similar perspectives on intelligence, sincerity and shared interests.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <p>The mosaic plots below show the association between different traits and the decision after the speed dating. Attrativeness, fun, and shared interests are positive associated with decision. In other words, higher the scores for those three traits, the more likely the dating partner would decide yes after the date. Interestingly, high intelligence and ambition score seemed to have a negative association with decision. When intelligence score increases from 9 to 10, the proportion of positive responses drops.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-26-1.png" width="480" /></p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-27-1.png" width="1152" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-38-1.png" width="480" /></p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-39-1.png" width="1152" /></p>
 
+</div>
 </div>
             </section>
 

@@ -22,6 +22,7 @@ library(tidytext)
 library(fmsb)
 ```
 
+## Between Race and Matching
 
 ```{r}
 sd <- df_select %>% 
@@ -29,6 +30,8 @@ sd <- df_select %>%
   select(id_within_group,gender, race, age, income, field_study,race_importance,samerace,match)
 sd <- sd[!duplicated(sd[ , 'id_within_group']), ] 
 ```
+
+We will start by looking at the distribution of race in the dataset and explore the relationship between race-related ratings and dating march. 
 
 ```{r}
 sd %>% 
@@ -96,6 +99,10 @@ ggplot(temp,aes(x=race_importance,y=SR))+
 ```
 
 We didn't see a salient relationship between success rate and the importance of race in the scatterplot above. However, we see that participants with high success rate (above 0.7) are those who rate importance of race with a score of 3 or below. Participants who rated importance of race with 10 face a much smaller group of ideal dating partners and consequently have a much lower rate of success.
+
+## Traits and Matching
+
+Now, we will look at the role of different traits (attractiveness, intelligence, sincerity, fun, ambition, and shared interests) in successful matching during speed dating.
 
 ```{r, fig.height = 5, fig.width=5}
 df_traits <- df_select %>% na.omit() %>% select(id_within_group, gender, pre_rate_attractiveness, pre_rate_sincerity, pre_rate_intelligence, pre_rate_fun, pre_rate_ambition, pre_rate_share) %>% unique(by = id_within_group)
